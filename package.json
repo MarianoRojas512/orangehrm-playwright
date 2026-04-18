@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:headed": "npx playwright test --headed",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "codegen": "npx playwright codegen https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.6.0"
   }
