@@ -1,0 +1,2 @@
+[   71074ms] [ERROR] Failed to load resource: the server responded with a status of 504 () @ https://opensource-demo.orangehrmlive.com/web/index.php/auth/requestResetPassword:0
+[   71424ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://opensource-demo.orangehrmlive.com/favicon.ico:0
