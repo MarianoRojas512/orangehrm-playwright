@@ -9,7 +9,23 @@ test.describe('My Info', () => {
     await myInfoPage.navigate();
   });
 
+  test('should show required errors when first and last name are cleared', async () => {
+    await expect(myInfoPage.firstNameInput).not.toHaveValue('');
+
+    await test.step('Clear required fields and submit', async () => {
+      await myInfoPage.firstNameInput.clear();
+      await myInfoPage.lastNameInput.clear();
+      await myInfoPage.personalDetailsSaveButton.click();
+    });
+
+    await test.step('Verify validation messages', async () => {
+      await expect(myInfoPage.firstNameRequiredMessage).toBeVisible();
+      await expect(myInfoPage.lastNameRequiredMessage).toBeVisible();
+   2 });
+  });
+
   test('should save personal details successfully', async () => {
+    await expect(myInfoPage.firstNameInput).not.toHaveValue('');
     const data = await myInfoPage.editPersonalDetails();
 
     await expect(myInfoPage.firstNameInput).toHaveValue(data.firstName);
