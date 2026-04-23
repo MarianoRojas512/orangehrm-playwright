@@ -74,6 +74,12 @@ The Playwright MCP server is configured in `.mcp.json` for use with Claude Code'
 
 ---
 
+## Workflow Rules
+
+- **Never make any file change without explicit user approval first.** Always present what you plan to do and wait for the user's OK before executing. This applies to every edit, creation, or deletion — no exceptions.
+
+---
+
 ## Senior SDET Rules & Best Practices
 
 These rules are mandatory. They reflect Playwright's official guidance and production-grade automation standards. Follow them exactly when writing or modifying any test or page object code.

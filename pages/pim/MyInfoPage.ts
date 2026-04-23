@@ -1,4 +1,4 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import { faker } from '@faker-js/faker';
 import { BasePage } from '../BasePage';
 
@@ -80,7 +80,6 @@ export class MyInfoPage extends BasePage {
       gender: faker.helpers.arrayElement(['Male', 'Female']) as 'Male' | 'Female',
     };
 
-    await expect(this.firstNameInput).not.toHaveValue('');
     await this.firstNameInput.fill(data.firstName);
     await this.middleNameInput.fill(data.middleName);
     await this.lastNameInput.fill(data.lastName);
