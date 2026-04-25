@@ -18,6 +18,22 @@ test.describe('PIM - Employee', () => {
     expect(employee.lastName).toBeTruthy();
   });
 
+  test('should show validation errors when required fields are empty', { tag: '@regression' }, async ({ page }) => {
+    const addEmployeePage = new AddEmployeePage(page);
+    await addEmployeePage.navigate();
+    await addEmployeePage.saveButton.click();
+    await expect(addEmployeePage.validationErrors).toHaveText(['Required', 'Required']);
+  });
+
+  test('should show no records when searching for a non-existent employee', { tag: '@regression' }, async ({ page }) => {
+    const employeeListPage = new EmployeeListPage(page);
+    await employeeListPage.navigate();
+    await employeeListPage.employeeNameInput.fill('ZZZNONEXISTENT999');
+    await employeeListPage.searchButton.click();
+    await expect(employeeListPage.noRecordsToast).toHaveText('No Records Found');
+    await expect(employeeListPage.noRecordsText).toHaveText('No Records Found');
+  });
+
   test('should create, verify, and delete employee through UI', { tag: '@regression' }, async ({ page }) => {
     const addEmployeePage = new AddEmployeePage(page);
     const employeeListPage = new EmployeeListPage(page);
