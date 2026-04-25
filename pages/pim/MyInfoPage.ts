@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 import { faker } from '@faker-js/faker';
-import { BasePage } from '../BasePage';
+import { BasePage } from '@pages/BasePage';
 
 export class MyInfoPage extends BasePage {
   private static readonly PATH = '/web/index.php/pim/viewMyDetails';

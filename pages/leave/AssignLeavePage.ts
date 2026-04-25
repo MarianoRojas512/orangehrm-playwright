@@ -1,5 +1,5 @@
 import { Page, Locator } from '@playwright/test';
-import { BasePage } from '../BasePage';
+import { BasePage } from '@pages/BasePage';
 
 export class AssignLeavePage extends BasePage {
   private static readonly PATH = '/web/index.php/leave/assignLeave';

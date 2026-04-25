@@ -34,3 +34,14 @@ export async function deleteEmployee(
     data: { ids: [empNumber] },
   });
 }
+
+export async function findEmployeeByName(
+  request: APIRequestContext,
+  name: string,
+): Promise<Employee | null> {
+  const response = await request.get('/web/index.php/api/v2/pim/employees', {
+    params: { nameOrId: name },
+  });
+  const body = await response.json();
+  return body.data[0] ?? null;
+}
