@@ -11,6 +11,7 @@ export class AddEmployeePage extends BasePage {
   readonly lastNameInput: Locator;
   readonly employeeIdInput: Locator;
   readonly saveButton: Locator;
+  readonly validationErrors: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -22,6 +23,7 @@ export class AddEmployeePage extends BasePage {
       .locator('.oxd-input-group', { hasText: 'Employee Id' })
       .getByRole('textbox');
     this.saveButton = page.getByRole('button', { name: 'Save' });
+    this.validationErrors = page.locator('.oxd-input-field-error-message');
   }
 
   async navigate(): Promise<void> {

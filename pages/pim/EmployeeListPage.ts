@@ -12,6 +12,8 @@ export class EmployeeListPage extends BasePage {
   readonly employeeTable: Locator;
   readonly deleteConfirmModal: Locator;
   readonly confirmDeleteButton: Locator;
+  readonly noRecordsToast: Locator;
+  readonly noRecordsText: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -27,6 +29,8 @@ export class EmployeeListPage extends BasePage {
     this.employeeTable = page.getByRole('table');
     this.deleteConfirmModal = page.getByRole('dialog').getByText('Are you Sure?');
     this.confirmDeleteButton = page.getByRole('button', { name: 'Yes, Delete' });
+    this.noRecordsToast = page.locator('.oxd-text--toast-message');
+    this.noRecordsText = page.locator('.orangehrm-horizontal-padding');
   }
 
   async navigate(): Promise<void> {
